@@ -57,19 +57,165 @@ footer{text-align:center;padding:20px;background:#020617}
 .hero-img{margin-top:30px}
 }
 </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Naveen Portfolio</title>
+
+<style>
+/* ===== BASIC RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #000;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav h1 {
+  font-size: 22px;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #22c55e;
+}
+
+/* ===== MENU BUTTON ===== */
+.menu-btn {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  nav {
+    padding: 15px 20px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background: #000;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 10px 0;
+    border-left: 1px solid #111;
+  }
+
+  nav ul li {
+    padding: 10px 0;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <h1>Naveen</h1>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <ul id="navLinks">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== SCRIPT ===== -->
+
+
+</body>
+</html>
 </head>
 
 <body>
 
 <nav>
   <h1>Naveen</h1>
-  <ul>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <ul id="navLinks">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+// MOBILE CLICK FIX
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute("href").substring(1);
+    const target = document.getElementById(targetId);
+
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // CLOSE MENU AFTER CLICK
+    document.getElementById("navLinks").classList.remove("show");
+  });
+});
+</script>
+
 
 <section class="hero" id="home">
   <div class="hero-text">
@@ -191,6 +337,165 @@ window.addEventListener('scroll',()=>{
  })
 });
 </script>
+<style>
 
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  /* ===== NAVBAR ===== */
+  nav {
+    padding: 15px 20px;
+  }
+
+  nav h1 {
+    font-size: 18px;
+  }
+
+  .menu-btn {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #000;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    text-align: center;
+    padding: 10px 0;
+    border-left: 1px solid #111;
+  }
+
+  nav ul li {
+    padding: 12px 0;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 100px 20px 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 30px;
+  }
+
+  .hero-text h3 {
+    font-size: 18px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .hero-img {
+    width: 200px;
+    height: 200px;
+    margin-top: 25px;
+  }
+
+  /* ===== BUTTON ===== */
+  .btn {
+    width: 100%;
+    max-width: 220px;
+    font-size: 14px;
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 60px 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  /* ===== GRID / PROJECTS ===== */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    text-align: center;
+    padding: 15px;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-box {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ===== CONTACT ===== */
+  input, textarea {
+    font-size: 14px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 40px 15px;
+  }
+
+  .footer h2 {
+    font-size: 22px;
+  }
+
+  .tagline {
+    font-size: 14px;
+  }
+
+  .social a {
+    display: inline-block;
+    margin: 8px;
+    font-size: 14px;
+  }
+
+  .copy {
+    font-size: 12px;
+  }
+}
+
+/* ===== EXTRA SMALL DEVICES ===== */
+@media (max-width: 480px) {
+
+  .hero-text h1 {
+    font-size: 26px;
+  }
+
+  .hero-text h3 {
+    font-size: 16px;
+  }
+
+  .hero-img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
+}
+
+</style>
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
 </body>
 </html>
