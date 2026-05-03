@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#000;color:#fff;scroll-behavior:smooth}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;position:fixed;width:100%;background:#000;z-index:1000}
+nav h1{font-size:22px}
+nav ul{display:flex;gap:25px;list-style:none}
+nav ul li a{text-decoration:none;color:#fff;position:relative}
+nav ul li a::after{content:'';position:absolute;width:0;height:2px;background:#22c55e;left:0;bottom:-5px;transition:.3s}
+nav ul li a:hover::after{width:100%}
+
+.hero{display:flex;justify-content:space-between;align-items:center;height:100vh;padding:0 50px}
+.hero-text h1{font-size:55px}
+.hero-text h1 span{color:#22c55e}
+.hero-text h3{font-size:28px;margin:10px 0}
+.hero-text p{max-width:500px;opacity:.8}
+
+.btn{margin-top:20px;padding:12px 25px;border-radius:30px;border:2px solid #22c55e;background:transparent;color:#22c55e;cursor:pointer;transition:.3s}
+.btn:hover{background:#22c55e;color:#000;transform:scale(1.05)}
+
+.hero-img{width:350px;height:350px;border-radius:50%;border:5px solid #22c55e;box-shadow:0 0 30px #22c55e;overflow:hidden;animation:float 3s ease-in-out infinite}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+section{padding:100px 50px}
+h2{margin-bottom:20px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#111;padding:20px;border-radius:10px;transition:.3s}
+.card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 0 20px #22c55e}
+
+.about-box{background:#111;padding:30px;border-radius:15px;line-height:1.8}
+
+.socials a{margin-right:15px;font-size:18px}
+
+input,textarea{width:100%;padding:10px;margin:10px 0;background:#111;border:none;color:#fff}
+
+footer{text-align:center;padding:20px;background:#020617}
+
+.fade{opacity:0;transform:translateY(40px);transition:1s}
+.fade.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+.hero{flex-direction:column;text-align:center}
+.hero-img{margin-top:30px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>Naveen</h1>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1>I'm <span>Naveen</span></h1>
+    <h3 id="typing"></h3>
+    <p>I build modern web apps using HTML, CSS, JavaScript & React. Passionate about UI, performance, and real-world solutions.</p>
+    <div class="socials">
+      <a href="https://github.com/Naveenkumar-Siva10" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/naveen-kumar-4aa6b635b" target="_blank">LinkedIn</a>
+    </div>
+    <div style="margin-top:20px;">
+  <a href="Naveen_Kumar_Resume.pdf" download class="btn">
+    Download Resume
+  </a>
+</div>
+  </div>
+
+  <div class="hero-img">
+    <img src="Professional.png" alt="profile">
+  </div>
+</section>
+
+<section id="about" class="fade">
+  <h2>About Me</h2>
+  <div class="about-box">
+    <p>I am a Frontend Developer with strong skills in HTML, CSS, JavaScript, and React.js. I have built real-world projects like a Finance Tracker and E-commerce UI.</p>
+    <br>
+    <p>I also have knowledge of <b>Prompt Engineering</b>, helping me effectively use AI tools to build smarter solutions and improve development workflow.</p>
+    <br>
+    <p>With 1 year of experience at Cognizant, I developed strong communication, problem-solving, and adaptability skills in a professional environment.</p>
+  </div>
+</section>
+
+<section id="projects" class="fade">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Spendesmart</h3>
+      <p>Finance tracker with filters & localStorage.</p>
+    </div>
+    <div class="card">
+      <h3>GreenDen</h3>
+      <p>Responsive e-commerce UI.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="fade">
+  <h2>Contact</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Message"></textarea>
+    <button class="btn">Send</button>
+  </form>
+</section>
+
+<style>
+footer {
+  background: #020617;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* glowing top border */
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+  animation: glowLine 3s infinite;
+}
+
+@keyframes glowLine {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* hover effect */
+footer:hover {
+  color: #22c55e;
+  transition: 0.3s;
+}
+</style>
+
+<footer>
+  &copy; 2026 Naveen Kumar. All rights reserved.
+</footer>
+
+<script>
+// typing animation
+const text="Frontend Developer | React Developer";
+let i=0;
+function type(){
+ if(i<text.length){
+ document.getElementById("typing").innerHTML+=text.charAt(i);
+ i++;
+ setTimeout(type,70);
+ }
+}
+type();
+
+// scroll animation
+const fades=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+ fades.forEach(el=>{
+  const top=el.getBoundingClientRect().top;
+  if(top<window.innerHeight-100){
+    el.classList.add('show');
+  }
+ })
+});
+</script>
+
+</body>
+</html>
